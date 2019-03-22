@@ -1,0 +1,29 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+  <div class="ui-g ui-fluid">
+      <div class="ui-g-12">
+          <div class="ui-inputgroup">
+              <input type="text"  formControlName="userName" pInputText placeholder="Username">   
+              <button pButton type="button" icon="pi pi-user" class="ui-button-warn"></button>      
+          </div>
+          <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                <div *ngIf="f.userName.errors.required">User Name is required</div>
+          </div>
+      </div>
+              
+      <div class="ui-g-12">
+         <div class="ui-inputgroup">
+              <input type="password"  formControlName="password" pInputText placeholder="Password">   
+              <button pButton type="button" icon="pi pi-lock" class="ui-button-warn"></button>      
+          </div>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+      </div>
+      <div class="ui-g-12">
+         <p-button icon="pi pi-sign-in" iconPos="right" label="Login"></p-button>
+      </div>
+  </div>
+  </form>
+  
+  
