@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,9 @@ export class LoginComponent implements OnInit {
     onSubmit(value: string) {
         this.submitted = true;
         if (this.loginForm.valid) {
-          this.authenticationService.login(this.f.userName.value, this.f.password.value).subscribe();
+          this.authenticationService.login(this.f.userName.value, this.f.password.value).pipe(first()).subscribe((res) => {
+            console.log(res);
+          });
           console.log('Success!!!');
         }
     }
