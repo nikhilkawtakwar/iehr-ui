@@ -1,0 +1,7 @@
+<div class="icon-bar">
+  <a [routerLink]="['user']" [ngClass]="{'active': selectedIndex==0}" href="#" (click)="selectedIndex=0"><i class="pi pi-home"></i></a> 
+  <a [routerLink]="['user-add']" [ngClass]="{'active': selectedIndex==1}" href="#" (click)="selectedIndex=1"><i class="pi pi-chart-bar"></i></a> 
+  <a [routerLink]="['calendar']" [ngClass]="{'active': selectedIndex==2}" href="#" (click)="selectedIndex=2"><i class="pi pi-calendar"></i></a> 
+  <a [routerLink]="['user']" [ngClass]="{'active': selectedIndex==3}" href="#" (click)="selectedIndex=3"><i class="pi pi-user"></i></a>
+  <a [routerLink]="['user']" [ngClass]="{'active': selectedIndex==4}" href="#" (click)="selectedIndex=4"><i class="pi pi-trash"></i></a> 
+</div>

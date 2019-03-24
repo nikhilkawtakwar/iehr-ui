@@ -1,0 +1,12 @@
+<p-toolbar styleClass="toolbar">
+    <div class="ui-toolbar-group-left">
+        <!--<img src="assets/images/companyLogo.png" alt="iehr" style="width:200px; height:40px;"/>-->
+        <i class="pi pi-bars barIcon" (click)="toggleShowMenu()"></i>
+    </div>
+
+    <div class="ui-toolbar-group-right">
+        <i pTooltip="Search"  class="pi pi-search searchIcon"></i>
+        <i pTooltip="Notifications"  class="pi pi-bell bellIcon"></i>
+        <i pTooltip="Logout"  class="pi pi-sign-out logoutIcon" (click)="logout()"></i>
+    </div>
+</p-toolbar>

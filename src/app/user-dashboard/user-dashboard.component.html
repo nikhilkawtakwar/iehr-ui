@@ -1,0 +1,11 @@
+<div>
+    <p-toast [style]="{marginTop: '80px'}"></p-toast>
+    <app-topbar (showMenuEvent)="onShowMenu($event)"></app-topbar>
+    <div style="display: table">
+        <app-menu style="display: table-cell;"></app-menu>
+        <div class="bradcrumb">
+            <app-breadcrumb></app-breadcrumb>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
