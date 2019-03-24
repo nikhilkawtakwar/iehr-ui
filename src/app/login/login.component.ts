@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { first } from 'rxjs/operators';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
 
- constructor(private formBuilder: FormBuilder, private authenticationService: AuthService) { }
+ constructor(
+   private formBuilder: FormBuilder,
+   private authenticationService: AuthService,
+   private userService: UserService
+ ) { }
 
  ngOnInit() {
         this.loginForm = this.formBuilder.group({
@@ -28,7 +33,11 @@ export class LoginComponent implements OnInit {
         this.submitted = true;
         if (this.loginForm.valid) {
           this.authenticationService.login(this.f.userName.value, this.f.password.value).pipe(first()).subscribe((res) => {
-            console.log(res);
+            // Set access_token in local storage
+            localStorage.setItem('access_token', res);
+            this.userService.getLoggedInUser(this.f.userName.value).subscribe((userRes) => {
+              localStorage.setItem('user', JSON.stringify(userRes));
+            });
           });
           console.log('Success!!!');
         }

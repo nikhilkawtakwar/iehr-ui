@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ButtonModule } from 'primeng/button';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule
   ],
 
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
